@@ -11,7 +11,7 @@
   <script src="node_modules/backbone/backbone.js"></script>
 </head>
 <body>
-  <div id="app">
+  <div id="app" class ="col-lg-12">
     <h5 style="border:none;">
       <br/><br/>this message will disappear when <em>app</em> view is correctly rendered<br/><br/><br/>
     </h5>
@@ -29,10 +29,11 @@
   <script src="src/views/videoPlayer.js"></script>
 
   <script>
-    backboneReady(() => {
-      var videos = new Videos(exampleVideoData);
-      new AppView({el: $('#app'), collection: videos}).render();
-    });
+backboneReady(() => {
+  var videos = new Videos(exampleVideoData);
+  new AppView();
+  new VideoListView({el: $('.list'), collection: videos});
+});
   </script>
 
 </body>

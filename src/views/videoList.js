@@ -1,20 +1,27 @@
 var VideoListView = Backbone.View.extend({
+  
   initialize: function() {
     this.render();
-
   },
-  
+
+  el: $('.list'),
+
   render: function() {
-    this.$el.children().detach();
+    //collection is
+    this.$el.empty();
+    this.$el.append(this.template());
     this.collection.forEach(this.renderVideo, this);
-    this.$el.html(this.template());
-    this.renderVideo();
+    // this.renderVideo();
   },
 
   renderVideo: function(video) {
-    var movie = new Video({exampleVideoData});
-    var videoView = new VideoListEntryView({model: movie});
-    this.$el.append(videoView.render());
+    var videoView = new VideoListEntryView({el: this.el, model: video});
+   
+    // this.$el.children().append();
+    // this.$el.append();
+    // this.$el.append()
+    // this.$el.append(videoView);
+    // this.$el.append(this)/s
   },
 
   template: templateURL('src/templates/videoList.html')
