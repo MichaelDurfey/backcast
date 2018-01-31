@@ -31,8 +31,7 @@
   <script>
 backboneReady(() => {
   var videos = new Videos(exampleVideoData);
-  new AppView();
-  new VideoListView({el: $('.list'), collection: videos});
+  new AppView({collection: videos});
 });
   </script>
 
